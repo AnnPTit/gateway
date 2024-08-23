@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: meddental
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/medicines/**
+          filters:
+            - name: CustomFilter
+
+server:
+  port: 8090
